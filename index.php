@@ -38,5 +38,5 @@
 			return true;
 		}
 	}
-</script>nxc
+</script>
 </html>

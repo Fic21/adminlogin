@@ -4,8 +4,8 @@ include 'config.php';
 $username = $_POST['username'];
 $password = md5($_POST['password']);
 
-$login = mysql_query("select * from user where username='$username' and password='$password'");
-$cek = mysql_num_rows($login);
+$login = mysqli_query($conn,"SELECT * from user where username='$username' and password='$password'");
+$cek = mysqli_num_rows($login);
 
 if($cek > 0){
 	session_start();
@@ -13,6 +13,10 @@ if($cek > 0){
 	$_SESSION['status'] = "login";
 	header("location:admin/index.php");
 }else{
-	header("location:index.php");	
-}saf
+	
+	echo '<script language="javascript">';
+	echo 'alert("Password atau username salah")';
+	echo '</script>';		
+}
+
 ?>
